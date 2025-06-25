@@ -27,7 +27,7 @@ if menu == "Input Manual":
                                 columns=['pelvic_incidence', 'pelvic_tilt', 'lumbar_lordosis_angle',
                                          'sacral_slope', 'pelvic_radius', 'degree_spondylolisthesis'])
         prediction = model.predict(df_input)[0]
-        label = ['Abnormal', 'Normal', 'Abnormal (second)']
+        label = ['Hernia', 'Normal', 'Spondylolisthesis']
         st.success(f"Hasil Prediksi: **{label[prediction]}**")
 
 elif menu == "Upload CSV":
@@ -41,7 +41,7 @@ elif menu == "Upload CSV":
 
         try:
             prediction = model.predict(df)
-            label = ['Abnormal', 'Normal', 'Abnormal (second)']
+            label = ['Hernia', 'Normal', 'Spondylolisthesis']
             df['Prediksi'] = [label[i] for i in prediction]
 
             st.subheader("Hasil Prediksi")
